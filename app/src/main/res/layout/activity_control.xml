@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/controlLayout"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal">
+
+        <hk.multitude.owcremote.widgets.JoystickPad
+            android:id="@+id/joystick"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="5dp" />
+
+        <hk.multitude.owcremote.widgets.ButtonPad
+            android:id="@+id/buttonPad"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="5dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/statusLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_above="@id/controlLayout"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/statusCircle"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/status_circle" />
+        <ProgressBar
+            android:id="@+id/statusProgress"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_gravity="center_vertical" />
+        <Button
+            android:id="@+id/statusText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/disconnected"
+            style="?android:attr/borderlessButtonStyle"
+            android:paddingLeft="5dp" android:paddingRight="5dp"
+            android:paddingTop="10dp" android:paddingBottom="10dp"
+            android:layout_marginStart="5dp"
+            android:textStyle="normal"
+            android:textAllCaps="false"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/deviceName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/monitor"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/statusLine"
+        android:background="@color/very_light_grey">
+
+        <EditText
+            android:id="@+id/monitorInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:inputType="textNoSuggestions"
+            android:hint="@string/send_message"
+            android:imeOptions="actionSend"
+            android:nextFocusLeft="@id/monitorInput"
+            android:nextFocusRight="@id/monitorInput"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_alignParentTop="true"
+            android:layout_above="@id/monitorInput"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <ListView
+                android:id="@+id/logView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:divider="@null" />
+
+            <ListView
+                android:id="@+id/varView"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:divider="@null" />
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
